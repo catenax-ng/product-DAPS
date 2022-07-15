@@ -102,11 +102,6 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
-          - name: CLIENT_SECRET
-            valueFrom: 
-              secretKeyRef:
-                name: avp-daps-secret
-                key: Client_secret
           - name: OMEJDN_PLUGINS
             value: {{ .Values.omejdn.serverKeyFolderPath }}/config/plugins.yml
           - name: OMEJDN_JWT_AUD_OVERRIDE
